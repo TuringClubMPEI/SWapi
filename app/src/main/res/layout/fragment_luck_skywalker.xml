@@ -1,14 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".LuckSkywalkerFragment">
+    android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/luk_skywalker_image"
+            android:layout_width="286dp"
+            android:layout_height="328dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/luke_skywalker" />
+
+        <TextView
+            android:id="@+id/luk_skywalker_text"
+            android:layout_width="292dp"
+            android:layout_height="182dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center|top"
+            android:text="Люк Сайуокер - мастер-джедай и гранд-мастер Нового Ордена джедаев, сын сенатора с Набу Падме Амидалы Наберри и рыцаря-джедая Энакина Скайуокера. Старший брат-близнец Леи Органы Соло. Родился в 19 ДБЯ в медицинском центре Полис-Масса в день создания Империи." />
+
+        <Button
+            android:id="@+id/from_luk_skywalker_fragment_to_main_fragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="90dp"
+            android:text="Назад" />
+    </LinearLayout>
 
 </FrameLayout>

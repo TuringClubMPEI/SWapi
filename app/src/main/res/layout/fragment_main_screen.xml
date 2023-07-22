@@ -1,14 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainScreenFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/main_information"
+            android:layout_width="261dp"
+            android:layout_height="61dp"
+            android:gravity="center"
+            android:text="Данные о персонажах Звездных Войн" />
+
+        <Button
+            android:id="@+id/go_to_dart_vader_fragment"
+            android:layout_width="261dp"
+            android:layout_height="61dp"
+            android:layout_marginTop="20dp"
+            android:text="Дарт Вайдер" />
+
+        <Button
+            android:id="@+id/go_to_shiv_palpatin_fragment"
+            android:layout_width="261dp"
+            android:layout_height="61dp"
+            android:layout_marginTop="20dp"
+            android:text="Шив Палпатин" />
+
+        <Button
+            android:id="@+id/go_to_luck_skywalker_fragment"
+            android:layout_width="261dp"
+            android:layout_height="61dp"
+            android:layout_marginTop="20dp"
+            android:text="Люк Скайуокер" />
+    </LinearLayout>
 
 </FrameLayout>
