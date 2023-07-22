@@ -16,18 +16,30 @@ class MainActivity : AppCompatActivity(), ActivityNavigator {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        goToFirstFragment()
+        goToMainFragment()
     }
 
-    override fun goToFirstFragment() {
+    override fun goToMainFragment() {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.container, FirstFragment.newInstance())
+            .replace(R.id.container, MainScreenFragment.newInstance())
             .commit()
     }
 
-    override fun goToSecondFragment(string: String) {
+    override fun goToDartVaderFragment() {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.container, SecondFragment.newInstance(string))
+            .replace(R.id.container, DartVaderFragment.newInstance())
+            .commit()
+    }
+
+    override fun goToLuckSkywalkerFragment() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.container,  LuckSkywalkerFragment.newInstance())
+            .commit()
+    }
+
+    override fun goToShivPalpatinFragment() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.container, ShivPalpatinFragment.newInstance())
             .commit()
     }
 }
