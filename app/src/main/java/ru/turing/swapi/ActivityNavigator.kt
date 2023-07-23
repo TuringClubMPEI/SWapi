@@ -5,9 +5,5 @@ interface ActivityNavigator {
 
     fun goToMainFragment()
 
-    fun goToLuckSkywalkerFragment()
-
-    fun goToDartVaderFragment()
-
-    fun goToShivPalpatinFragment()
+    fun goToDataFragment(character: String)
 }

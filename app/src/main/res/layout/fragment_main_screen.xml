@@ -16,28 +16,28 @@
             android:layout_width="261dp"
             android:layout_height="61dp"
             android:gravity="center"
-            android:text="Данные о персонажах Звездных Войн" />
+            android:text="@string/main_text" />
 
         <Button
             android:id="@+id/go_to_dart_vader_fragment"
             android:layout_width="261dp"
             android:layout_height="61dp"
             android:layout_marginTop="20dp"
-            android:text="Дарт Вайдер" />
+            android:text="@string/dart_vader_name" />
 
         <Button
             android:id="@+id/go_to_shiv_palpatin_fragment"
             android:layout_width="261dp"
             android:layout_height="61dp"
             android:layout_marginTop="20dp"
-            android:text="Шив Палпатин" />
+            android:text="@string/shiv_palpatin_name" />
 
         <Button
-            android:id="@+id/go_to_luck_skywalker_fragment"
+            android:id="@+id/go_to_luk_skywalker_fragment"
             android:layout_width="261dp"
             android:layout_height="61dp"
             android:layout_marginTop="20dp"
-            android:text="Люк Скайуокер" />
+            android:text="@string/luk_skywalker_name" />
     </LinearLayout>
 
 </FrameLayout>

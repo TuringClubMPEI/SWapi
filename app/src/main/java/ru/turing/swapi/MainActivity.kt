@@ -25,21 +25,9 @@ class MainActivity : AppCompatActivity(), ActivityNavigator {
             .commit()
     }
 
-    override fun goToDartVaderFragment() {
+    override fun goToDataFragment(character: String) {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.container, DartVaderFragment.newInstance())
-            .commit()
-    }
-
-    override fun goToLuckSkywalkerFragment() {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.container,  LuckSkywalkerFragment.newInstance())
-            .commit()
-    }
-
-    override fun goToShivPalpatinFragment() {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.container, ShivPalpatinFragment.newInstance())
+            .replace(R.id.container, DataFragment.newInstance(character))
             .commit()
     }
 }

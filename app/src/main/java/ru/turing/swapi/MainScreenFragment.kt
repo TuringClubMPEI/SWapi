@@ -5,8 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import ru.turing.swapi.databinding.FragmentDartVaderBinding
-import ru.turing.swapi.databinding.FragmentLuckSkywalkerBinding
 import ru.turing.swapi.databinding.FragmentMainScreenBinding
 
 class MainScreenFragment : Fragment() {
@@ -21,19 +19,19 @@ class MainScreenFragment : Fragment() {
 
         binding.goToDartVaderFragment.setOnClickListener {
             if (activity is ActivityNavigator) {
-                (activity as ActivityNavigator).goToDartVaderFragment()
+                (activity as ActivityNavigator).goToDataFragment("dart_vader")
             }
         }
 
-        binding.goToLuckSkywalkerFragment.setOnClickListener {
+        binding.goToLukSkywalkerFragment.setOnClickListener {
             if (activity is ActivityNavigator) {
-                (activity as ActivityNavigator).goToLuckSkywalkerFragment()
+                (activity as ActivityNavigator).goToDataFragment("luk_skywalker")
             }
         }
 
         binding.goToShivPalpatinFragment.setOnClickListener {
             if (activity is ActivityNavigator) {
-                (activity as ActivityNavigator).goToShivPalpatinFragment()
+                (activity as ActivityNavigator).goToDataFragment("shiv_palpatin")
             }
         }
 
