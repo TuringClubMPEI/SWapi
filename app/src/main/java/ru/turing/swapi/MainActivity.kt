@@ -2,9 +2,12 @@ package ru.turing.swapi
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
+import androidx.fragment.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import ru.turing.swapi.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity(), ActivityNavigator {
+class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
 
     /**
      * by lazy{...} инициализирует поле в момент первого обращения к полю. Не сипользуем инциаилизацию
@@ -16,18 +19,20 @@ class MainActivity : AppCompatActivity(), ActivityNavigator {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        goToFirstFragment()
+        binding.bottomNavigationView.setOnNavigationItemSelectedListener(this)
+        routeTo(FirstFragment.newInstance())
     }
 
-    override fun goToFirstFragment() {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.container, FirstFragment.newInstance())
-            .commit()
+    override fun onNavigationItemSelected(item: MenuItem) = when(item.itemId) {
+        R.id.first -> routeTo(FirstFragment.newInstance())
+        R.id.second -> routeTo(SecondFragment.newInstance("olol"))
+        else -> false
     }
 
-    override fun goToSecondFragment(string: String) {
+    private fun routeTo(fragment: Fragment): Boolean {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.container, SecondFragment.newInstance(string))
+            .replace(R.id.container, fragment)
             .commit()
+        return true
     }
 }

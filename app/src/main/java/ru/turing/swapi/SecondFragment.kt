@@ -18,9 +18,9 @@ class SecondFragment: Fragment() {
     ): View {
         binding = FragmentSecondBinding.inflate(inflater, container, false)
 
-        val stringFromFirst = arguments?.getString(ARG_FROM_FIRST) ?: ""
+        val character = arguments?.getSerializable(ARG_FROM_FIRST) as SwCharacter
 
-        binding.button.text = stringFromFirst
+        binding.button.text = character.name
 
         binding.button.setOnClickListener {
             if (activity is ActivityNavigator) {
@@ -35,9 +35,9 @@ class SecondFragment: Fragment() {
 
         const val ARG_FROM_FIRST = "arg_from_fragment"
 
-        fun newInstance(stringFromFirstFragment: String) = SecondFragment().apply {
+        fun newInstance(character: SwCharacter) = SecondFragment().apply {
             arguments = Bundle().apply {
-                putString(ARG_FROM_FIRST, stringFromFirstFragment)
+                putSerializable(ARG_FROM_FIRST, character)
             }
         }
     }

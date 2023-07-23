@@ -22,17 +22,20 @@ class FirstFragment : Fragment() {
     ): View {
         binding = FragmentFirstBinding.inflate(inflater, container, false)
 
-        binding.buttonFirstFragment.setOnClickListener {
-            /**
-             * проверяем является ли activity к которой прикреплен фрагмент реализующей интерфейс
-             * ActivityNavigator
-             */
-            if (activity is ActivityNavigator) {
-                //если да, то вызываем метод интерфейса
-                (activity as ActivityNavigator).goToSecondFragment(binding.editText.text.toString())
-            }
+        val adapter = SwCharactersAdapter {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.container, SecondFragment.newInstance("norm"))
+                .commit()
         }
-
+        binding.charactersRecyclerView.adapter = adapter
+        binding.addDataButton.setOnClickListener {
+            adapter.addSwCharacters(listOf(
+                SwCharacter("lol", "aldnisbDVLIBDPIUABFVUYASFGOILVKSDVA", "some link"),
+                SwCharacter("lol", "aldnisbDVLIBDPIUABFVUYASFGOILVKSDVA", "some link"),
+                SwCharacter("lol", "aldnisbDVLIBDPIUABFVUYASFGOILVKSDVA", "some link"),
+                SwCharacter("lol", "aldnisbDVLIBDPIUABFVUYASFGOILVKSDVA", "some link"),
+            ))
+        }
         return binding.root
     }
 
