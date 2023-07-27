@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.res.ResourcesCompat
 import ru.turing.swapi.databinding.FragmentMainScreenBinding
 
 class MainScreenFragment : Fragment() {
@@ -19,19 +20,34 @@ class MainScreenFragment : Fragment() {
 
         binding.goToDartVaderFragment.setOnClickListener {
             if (activity is ActivityNavigator) {
-                (activity as ActivityNavigator).goToDataFragment("dart_vader")
+                (activity as ActivityNavigator).goToDataFragment(
+                    CharacterData(
+                        getString(R.string.dart_vader_text),
+                        ResourcesCompat.getDrawable(resources, R.drawable.darth_vader, null)
+                )
+                )
             }
         }
 
         binding.goToLukSkywalkerFragment.setOnClickListener {
             if (activity is ActivityNavigator) {
-                (activity as ActivityNavigator).goToDataFragment("luk_skywalker")
+                (activity as ActivityNavigator).goToDataFragment(
+                    CharacterData(
+                        getString(R.string.luk_skywalker_text),
+                        ResourcesCompat.getDrawable(resources, R.drawable.luk_skywalker, null)
+                    )
+                )
             }
         }
 
         binding.goToShivPalpatinFragment.setOnClickListener {
             if (activity is ActivityNavigator) {
-                (activity as ActivityNavigator).goToDataFragment("shiv_palpatin")
+                (activity as ActivityNavigator).goToDataFragment(
+                    CharacterData(
+                        getString(R.string.shiv_palpatin_text),
+                        ResourcesCompat.getDrawable(resources, R.drawable.shiv_palpatin, null)
+                    )
+                )
             }
         }
 

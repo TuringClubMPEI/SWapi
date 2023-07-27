@@ -5,5 +5,5 @@ interface ActivityNavigator {
 
     fun goToMainFragment()
 
-    fun goToDataFragment(character: String)
+    fun goToDataFragment(character: CharacterData)
 }

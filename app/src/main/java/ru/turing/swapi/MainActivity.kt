@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity(), ActivityNavigator {
             .commit()
     }
 
-    override fun goToDataFragment(character: String) {
+    override fun goToDataFragment(character: CharacterData) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.container, DataFragment.newInstance(character))
             .commit()

@@ -1,5 +1,6 @@
 package ru.turing.swapi
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -19,22 +20,10 @@ class DataFragment : Fragment() {
     ): View {
         binding = FragmentDataBinding.inflate(inflater, container, false)
 
-        when (arguments?.getString(ARG_FROM_MAIN) ?: "") {
-            "dart_vader" -> {
-                binding.dataText.text = R.string.dart_vader_text.toString()
-                binding.dataImage.setImageDrawable(R.drawable.darth_vader.toDrawable())
-            }
+        val character = arguments?.getSerializable(ARG_FROM_MAIN) as CharacterData
+        binding.dataText.text = character.description
+        binding.dataImage.setImageDrawable(character.image)
 
-            "shiv_palpatin" -> {
-                binding.dataText.text = R.string.shiv_palpatin_text.toString()
-                binding.dataImage.setImageDrawable(R.drawable.mp_palpatine.toDrawable())
-            }
-
-            "luk_skywalker" -> {
-                binding.dataText.text = R.string.luk_skywaalker_text.toString()
-                binding.dataImage.setImageDrawable(R.drawable.luke_skywalker.toDrawable())
-            }
-        }
 
         binding.buttonToMainFragment.setOnClickListener {
             if (activity is ActivityNavigator) {
@@ -49,10 +38,10 @@ class DataFragment : Fragment() {
         private const val ARG_FROM_MAIN = "arg_from_main"
 
         @JvmStatic
-        fun newInstance(character: String) =
+        fun newInstance(character: CharacterData) =
             DataFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_FROM_MAIN, character)
+                    putSerializable(ARG_FROM_MAIN, character)
                 }
             }
     }
