@@ -20,7 +20,7 @@ class DataFragment : Fragment() {
     ): View {
         binding = FragmentDataBinding.inflate(inflater, container, false)
 
-        val character = arguments?.getSerializable(ARG_FROM_MAIN) as CharacterData
+        val character = arguments?.getSerializable(ARG_CHARACTER_DATA) as CharacterData
         binding.dataText.text = character.description
         binding.dataImage.setImageDrawable(character.image)
 
@@ -35,13 +35,13 @@ class DataFragment : Fragment() {
     }
 
     companion object {
-        private const val ARG_FROM_MAIN = "arg_from_main"
+        private const val ARG_CHARACTER_DATA = "arg_character_data"
 
         @JvmStatic
         fun newInstance(character: CharacterData) =
             DataFragment().apply {
                 arguments = Bundle().apply {
-                    putSerializable(ARG_FROM_MAIN, character)
+                    putSerializable(ARG_CHARACTER_DATA, character)
                 }
             }
     }
