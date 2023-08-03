@@ -6,23 +6,28 @@ import ru.turing.swapi.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), ActivityNavigator {
 
+    /**
+     * by lazy{...} инициализирует поле в момент первого обращения к полю. Не сипользуем инциаилизацию
+     * "на месте", так как binding взаимодействует с View элементами, что до появления контекста делать нельзя
+     * а контекст появляется только в onCreate. Соответственно, до onCreate не пользуемся биндингом
+     */
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        goToFirstFragment()
+        goToMainFragment()
     }
 
-    override fun goToFirstFragment() {
+    override fun goToMainFragment() {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.container, FirstFragment.newInstance())
+            .replace(R.id.container, MainScreenFragment.newInstance())
             .commit()
     }
 
-    override fun goToSecondFragment(string: String) {
+    override fun goToDataFragment(character: CharacterData) {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.container, SecondFragment.newInstance(string))
+            .replace(R.id.container, DataFragment.newInstance(character))
             .commit()
     }
 }

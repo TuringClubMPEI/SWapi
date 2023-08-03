@@ -1,8 +1,9 @@
 package ru.turing.swapi
 
+
 interface ActivityNavigator {
 
-    fun goToFirstFragment()
+    fun goToMainFragment()
 
-    fun goToSecondFragment(string: String)
+    fun goToDataFragment(character: CharacterData)
 }

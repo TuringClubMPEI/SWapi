@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">SWapi</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="luk_skywalker_text">Люк Сайуокер - мастер-джедай и гранд-мастер Нового Ордена джедаев, сын сенатора с Набу Падме Амидалы Наберри и рыцаря-джедая Энакина Скайуокера. Старший брат-близнец Леи Органы Соло. Родился в 19 ДБЯ в медицинском центре Полис-Масса в день создания Империи.</string>
+    <string name="shiv_palpatin_text">Шив Палпатин - ситх, сенатор и Верховный канцлер Галактической Республики, а позднее Император Галактики, один из главных отрицательных героев во вселенной «Звёздные войны».</string>
+    <string name="dart_vader_text">В оригинальной трилогии «Звёздных Войн» Энакин Скайуокер появляется под именем «Дарт Вейдер». Дарт Вейдер — главный антагонист: хитрый и жестокий руководитель армии Галактической Империи, которая правит во всей Галактике. Вейдер выступает как ученик и самый лучший силовик Императора Палпатина.</string>
+    <string name="luk_skywalker_name">Люк Скайуокер</string>
+    <string name="shiv_palpatin_name">Шив Палпатин</string>
+    <string name="dart_vader_name">Дарт Вейдер</string>
+    <string name="back">Назад</string>
+    <string name="main_text">Данные о персонажах звездных войн</string>
 </resources>
