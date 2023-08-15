@@ -24,13 +24,6 @@ class DataFragment : Fragment() {
         binding.dataText.text = character.description
         binding.dataImage.setImageDrawable(character.image)
 
-
-        binding.buttonToMainFragment.setOnClickListener {
-            if (activity is ActivityNavigator) {
-                (activity as ActivityNavigator).goToMainFragment()
-            }
-        }
-
         return binding.root
     }
 

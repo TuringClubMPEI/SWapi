@@ -2,9 +2,13 @@ package ru.turing.swapi
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
+import androidx.fragment.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationBarView
 import ru.turing.swapi.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity(), ActivityNavigator {
+class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
 
     /**
      * by lazy{...} инициализирует поле в момент первого обращения к полю. Не сипользуем инциаилизацию
@@ -16,18 +20,22 @@ class MainActivity : AppCompatActivity(), ActivityNavigator {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        goToMainFragment()
+        binding.bottomNavigationView.setOnNavigationItemSelectedListener(this)
+        routeTo(MainScreenFragment.newInstance())
     }
 
-    override fun goToMainFragment() {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.container, MainScreenFragment.newInstance())
-            .commit()
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean = when(item.itemId) {
+        R.id.bot_menu_home_screen -> routeTo(MainScreenFragment.newInstance())
+        R.id.bot_menu_about_screen -> routeTo(AboutFragment.newInstance())
+        else -> false
     }
 
-    override fun goToDataFragment(character: CharacterData) {
+    private fun routeTo(fragment: Fragment): Boolean {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.container, DataFragment.newInstance(character))
+            .replace(R.id.container, fragment)
             .commit()
+
+        return true
     }
 }

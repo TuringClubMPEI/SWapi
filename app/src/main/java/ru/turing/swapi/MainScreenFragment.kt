@@ -1,29 +1,16 @@
 package ru.turing.swapi
 
-import android.app.Activity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.res.ResourcesCompat
-import androidx.fragment.app.FragmentActivity
 import ru.turing.swapi.databinding.FragmentMainScreenBinding
 
 class MainScreenFragment : Fragment() {
 
     private lateinit var binding: FragmentMainScreenBinding
-
-    private fun goToCharacterButtonClick(CharacterTextId: Int, CharacterDrawableId: Int, activity: FragmentActivity?) {
-        if (activity is ActivityNavigator) {
-            (activity as ActivityNavigator).goToDataFragment(
-                CharacterData(
-                    getString(CharacterTextId),
-                    ResourcesCompat.getDrawable(resources, CharacterDrawableId, null)
-                )
-            )
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,17 +18,32 @@ class MainScreenFragment : Fragment() {
     ): View {
         binding = FragmentMainScreenBinding.inflate(inflater, container, false)
 
-        binding.goToDartVaderFragment.setOnClickListener {
-            goToCharacterButtonClick(R.string.dart_vader_text, R.drawable.darth_vader, activity)
+        val adapter = SwCharactersAdapter {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.container, DataFragment.newInstance(it))
+                .commit()
         }
+        binding.charactersRecyclerView.adapter = adapter
 
-        binding.goToLukSkywalkerFragment.setOnClickListener {
-            goToCharacterButtonClick(R.string.luk_skywalker_text, R.drawable.luk_skywalker, activity)
-        }
-
-        binding.goToShivPalpatinFragment.setOnClickListener {
-            goToCharacterButtonClick(R.string.shiv_palpatin_text, R.drawable.shiv_palpatin, activity)
-        }
+        adapter.addSwCharacters(
+            listOf(
+                CharacterData(
+                    getString(R.string.luk_skywalker_name),
+                    getString(R.string.luk_skywalker_text),
+                    ResourcesCompat.getDrawable(resources, R.drawable.luk_skywalker, null)
+                ),
+                CharacterData(
+                    getString(R.string.shiv_palpatin_name),
+                    getString(R.string.shiv_palpatin_text),
+                    ResourcesCompat.getDrawable(resources, R.drawable.shiv_palpatin, null)
+                ),
+                CharacterData(
+                    getString(R.string.dart_vader_name),
+                    getString(R.string.dart_vader_text),
+                    ResourcesCompat.getDrawable(resources, R.drawable.darth_vader, null)
+                )
+            )
+        )
 
         return binding.root
     }
