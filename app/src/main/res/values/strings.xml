@@ -8,4 +8,8 @@
     <string name="dart_vader_name">Дарт Вейдер</string>
     <string name="back">Назад</string>
     <string name="main_text">Данные о персонажах звездных войн</string>
+    <string name="bot_menu_home_screen">Начальный экран</string>
+    <string name="bot_menu_about_screen">Об авторе</string>
+    <string name="about_text">Серебряков Константин Александрович</string>
+    <string name="go_to_data_fragment_button_text">Перейти к персонажу</string>
 </resources>

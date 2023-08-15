@@ -1,10 +1,10 @@
 package ru.turing.swapi
 
-import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
 import java.io.Serializable
 
-class CharacterData(CharacterDescription: String, CharacterImage: Drawable?) : Serializable {
-    val description = CharacterDescription
-    val image = CharacterImage
-}
+data class CharacterData(
+    val name: String,
+    val description: String,
+    val image: Drawable?
+) : Serializable

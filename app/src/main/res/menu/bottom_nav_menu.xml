@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/bot_menu_home_screen"
+        android:title="@string/bot_menu_home_screen"
+        android:icon="@drawable/ic_launcher_foreground" />
+
+    <item
+        android:id="@+id/bot_menu_about_screen"
+        android:title="@string/bot_menu_about_screen"
+        android:icon="@drawable/ic_launcher_foreground"/>
+
+</menu>

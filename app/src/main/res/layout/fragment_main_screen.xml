@@ -6,38 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".MainScreenFragment">
 
-    <LinearLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/characters_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/main_information"
-            android:layout_width="261dp"
-            android:layout_height="61dp"
-            android:gravity="center"
-            android:text="@string/main_text" />
-
-        <Button
-            android:id="@+id/go_to_dart_vader_fragment"
-            android:layout_width="261dp"
-            android:layout_height="61dp"
-            android:layout_marginTop="20dp"
-            android:text="@string/dart_vader_name" />
-
-        <Button
-            android:id="@+id/go_to_shiv_palpatin_fragment"
-            android:layout_width="261dp"
-            android:layout_height="61dp"
-            android:layout_marginTop="20dp"
-            android:text="@string/shiv_palpatin_name" />
-
-        <Button
-            android:id="@+id/go_to_luk_skywalker_fragment"
-            android:layout_width="261dp"
-            android:layout_height="61dp"
-            android:layout_marginTop="20dp"
-            android:text="@string/luk_skywalker_name" />
-    </LinearLayout>
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_sw_character"/>
 
 </FrameLayout>
